@@ -1,129 +1,127 @@
-'use strict';
 /*Task 1
-შექმენით პროდუქციის კალათა (მასივი), სადაც თითოეული პროდუქტი არის ობიექტი
-და შეიცავს შემდეგ ველებს:
-const productCart=[{},{},{}]
-name – პროდუქტის სახელი
-price – პროდუქტის ფასი
-quantity – რაოდენობა
-შემდეგ, for ციკლის გამოყენებით, გამოთვალეთ კალათის საერთო ღირებულება და
-დაბეჭდეთ კონსოლში.
-თუ მთლიანი ღირებულება 100₾-ზე მეტია, დაბეჭდეთ:
-➡️ "გილოცავთ! თქვენ მიიღეთ უფასო მიტანის სერვისი!"
-წინააღმდეგ შემთხვევაში, დაბეჭდეთ:
-➡️ "მიტანის სერვისისთვის საჭიროა 100₾-ზე მეტი თანხა".
+1.შექმენით ცვლადი user და შეინახეთ მნიშვნელობა ‘admin’ , შექმენით ცვლადი
+passCode და შეინახეთ მნიშვნელობა-12345.
+გამოიყენეთ prompt მეთოდი და მომხარებელსაც ჩააწერინეთ user და passCode.
+თუ მომხმარებლის მიერ ჩაწერილი user და passCode დაემთხვევა, წინასწარ შენახულ
+ინფორმაციას, კონსოლში დაბეჭდეთ"Login successful. Welcome!"
+თუ, რომელიმე არ დაემთხვევა დაბეჭდეთ შესაბამისი მესიჯი : Incorrect username ან
+Incorrect password
+სხვა შემთხვევაში, დაბეჭდეთ Login failed. Please try again.
 */
-const productCart = [
-  {
-    name: "Apple",
-    price: 5,
-    quantiry: 10,
-  },
-  {
-    name: "Banana",
-    price: 2,
-    quantiry: 20,
-  },
-  {
-    name: "Orange",
-    price: 8,
-    quantiry: 4,
-  }];
-let totalPrice = 0;
-for (let i = 0; i < productCart.length; i++){
-  totalPrice += productCart[i].price * productCart[i].quantiry;
+/*
+let user = 'admin';
+let passCode = 12345;
+//const EnteredUser = prompt('Enter your User');
+//const enteredPassword = Number(prompt('Enter Your Password'));
+if (EnteredUser === user && enteredPassword === passCode) {
+  console.log('Login successful. Welcome!');
+} else if (EnteredUser !== user) {
+  console.log('Incorrect username');
+} else if (enteredPassword !== passCode) {
+  console.log('Incorrect password');
+} else {
+  console.log('Login failed. Please try again.');
 }
-totalPrice > 100 ? console.log("გილოცავთ! თქვენ მიიღეთ უფასო მიტანის სერვისი!")
-  : console.log("მიტანის სერვისისთვის საჭიროა 100₾-ზე მეტი თანხა");
-
-  /*Task 2
-შექმენით პროდუქტების მასივი, სადაც თითოეული პროდუქტი არის ობიექტი და
-შეიცავს შემდეგ ველებს:
-name – პროდუქტის სახელი
-price – პროდუქტის ფასი
-for ციკლის გამოყენებით, იპოვეთ ყველაზე ძვირადღირებული პროდუქტი და
-დაბეჭდეთ მისი სახელი და ფასი კონსოლში.
+  */
+/*Task 2
+შეამოწმეთ სტრიქონი არის თუ არა პალინდრომი. ( პალინდრომი არის ისეთი ტიპის
+მონაცემი,
+რომელიც ერთნაირად იკითხება მარცხნიდან და მარჯვნიდან, მაგ LEVEL, ANNA, ALLO)
+შექმენით ცვლადი და მიანიჭეთ სტრიქონი, რომლის შემოწმებაც გსურთ.
+სტრიქონზე იმოქმედეთ ToLowerCase() მაგ: str. ToLowerCase()
+გამოიყენეთ for ციკლი და შეადარეთ ერთმანეთს სიმბოლოები ინდექსის ნომრის
+მიხედვით,
+სტრიქონის თავში და ბოლოში. თუ თანმიმდევრულად ყველა მათგანი დაემთხვევა
+გამოიტანეთ
+მესიჯი კონსოლში, რომ ინფუთი არის პალიდრომი. თუ არ დაემთხვევა, გამოიტანეთ,
+რომ ინფუთი
+არ არის პალინდრომი. 
 */
-const productList = [
-  {
-    name: "Mobile",
-    price: 500,
-  },
-  {
-    name: "Computer",
-    price: 1200,
-  },
-  {
-    name: "Airpod",
-    price: 50,
-  },
-  {
-    name: "TV",
-    price: 750,
-  },
-  {
-    name: "Smartphone",
-    price: 450,
-  },
-  {
-    name: "Oven",
-    price: 700,
-  },
-  {
-    name: "Iron",
-    price: 75,
-  },
-  {
-    name: "Fan",
-    price: 80,
-  }
-];
-let expensiveProduct = productCart[0];
-for (let i = 0; i < productList.length; i++) {
-  if (productList[i].price > expensiveProduct.price) {
-    expensiveProduct = productList[i];
+
+let string = 'Javascript';
+string = string.toLowerCase();
+
+let isPalindrome = true;
+for (let i = 0; i < string.length / 2; i++) {
+  if (string[i] !== string[string.length - 1 - i]) {
+    isPalindrome = false;  
+    break;
   }
 }
-console.log(expensiveProduct);
 
+if (isPalindrome) {
+  console.log("სტრიქონი არის პალინდრომი.");
+} else {
+  console.log("სტრიქონი არ არის პალინდრომი.");
+}
 /*Task 3 
-შექმენით fruits მასივი. შემდეგ, join() მეთოდის გამოყენებით, ყველა ხილი გადააქციეთ
-ერთ სტრიქონად(string), ელემენტები გამოყავით მძიმით და space-ით. დაბეჭდეთ
-მიღებული სტრიქონი.
-*/
-const fruits = ["Apple", "Orange", "Banana", "Mango"];
-const fruitsString = fruits.join(",  ");
-console.log(fruitsString);
+გამოიყენეთ მასივის მეთოდი, რომელეც მოცემულ მასივის ანბანის ასოების
+თანმიმდევრობით დააწყობს:
 
-/*Task 4 
-შექმენით რიცხვების მასივი და reverse() მეთოდის გამოყენებით შეაბრუნეთ მისი
-ელემენტები. alert-ში დაბეჭდეთ შედეგი.
+const fruits = ["Banana", "Orange", "Apple", "Kiwi"];
 */
-const numArr = [1, 5, 8, 9, 10, 25];
-const reversedArr = numArr.reverse();
-//alert(reversedArr);
-/*Task 5 
-შექმენით ორი მასივი nums1 და nums2, concat() მეთოდის გამოყენებით გააერთიანეთ
-ისინი ახალ მასივში. დაბეჭდეთ გაერთიანებული მასივი.
-*/
-let nums1 = [12, 21];
-let nums2 = [7, 14];
-const newArr = nums1.concat(nums2);
-console.log(newArr);
-/*Task 6 
-შექმენით მასივი, რომელიც შეიცავს რამდენიმე ფერს. შემდეგ, push() მეთოდის
-გამოყენებით დაამატეთ ახალი ფერი მასივის ბოლოში და დაბეჭდეთ განახლებული
-მასივი.
-*/
-const colorList = ["red", "yellow", "pink", "blue"];
-colorList.push("Brown");
-console.log(colorList);
+const fruits = ["Banana", "Orange", "Apple", "Kiwi"];
+fruits.sort();
+console.log(fruits);
 
-/*შექმენით მასივი, რომელიც შეიცავს რამდენიმე ცხოველს. შემდეგ, pop() მეთოდის
-გამოყენებით ამოიღეთ ბოლო ცხოველი მასივიდან. დაბეჭდეთ განახლებული მასივი
-და ამოღებული ცხოველი ცალკე.
+/*Task 4
+არის ტანვარჯიშის ორი გუნდი: დელფინები და კოალები
+თითოეული გუნდი სამჯერ ასპარეზობს და მათი შედეგი გამოითვლება საშუალო
+არითმეტიკულით.
+გუნდი მოიგებს მხოლოდ იმ შემთხვევაში, თუ ორჯერ მეტი საშუალო ქულა ექნება
+მეორე გუნდთან
+შედარებით, სხვა შემთხვევაში არცერთი გუნდი არ იქნება მოგებული!
 */
 
-const animals = ["Fox", "Elephant", "Tiger", "Giraffe"];
-console.log(animals.pop());
-console.log(animals);
+/*1.1 შექმენი arrow ფუნქცია სახელად calcAverage და გამოითვალე 3 ასპარეზობის
+საშუალო
+არითმეტიკული . ამ ფუნქციას უნდა ჰქონდეს სამი პარამეტრი და უნდა დააბრუნოს
+ერთი
+რიცხვი(საშუალო
+არითმეტიკული).*/
+let calcAverage = (score1, score2, score3) => {
+  return (score1 + score2 + score3) / 3;
+}
+
+/*1.2 შექმენი ორი ცვლადი scoreDolphins და scoreKoalas, ამ ცვლადებს მიანიჭე
+მნიშვნელობად
+ფუნქცია*/
+let scoreDolphins = [44, 23, 71];
+let scoreKoalas= [65, 54, 49];
+
+let avgDolphins = Math.round(calcAverage(scoreDolphins[0], scoreDolphins[1], scoreDolphins[2]));
+let avgKoalas = Math.round(calcAverage(scoreKoalas[0], scoreKoalas[1], scoreKoalas[2]));
+console.log(avgDolphins);
+console.log(avgKoalas);
+
+
+
+let scoreDolphins2 = [85, 54, 41];
+let scoreKoalas2 = [23, 34, 27];
+
+let avgDolphins2 = Math.round(calcAverage(scoreDolphins2[0], scoreDolphins2[1], scoreDolphins2[2]));
+let avgKoalas2 = Math.round(calcAverage(scoreKoalas2[0], scoreKoalas2[1], scoreKoalas2[2]));
+/*1.3 შექმენი ფუნქცია checkWinner, რომელიც იღებს ორ პარამეტრს avgDolphins და
+avgKoalas ამ
+ფუნქციაში უნდა გაწეროთ ლოგიკა, თუ ერთი გუნდის საშუალო ართმეთმეტიკული
+ორჯერ მეტია,
+მეორე
+
+გუნდის საშუალო არითმეტიკულზე , გუნდი მოგებულია, თუ არცერთი არ აკმაყოფილებს
+ამ პირობას,
+ვერცერთი გუნდი ვერ მოიგებს. თუ რომელიმე გუნდმა მოიგო, დაბეჭდეთ ეს ტექსტი:
+Koalas win (30 vs. 13), თუ ვერცერთმა მოიგო No team wins...
+*/
+
+function checkWinner(avgDolphins, avgKoalas) {
+  if (avgDolphins > 2 * avgKoalas) {
+    console.log("Dolphins win");
+  }
+     else if(avgKoalas > 2 * avgDolphins) {
+      console.log("Koalas win");
+    } else {
+      console.log("No team wins");
+    }
+}
+checkWinner(avgDolphins, avgKoalas);
+checkWinner(avgDolphins2, avgKoalas2);
