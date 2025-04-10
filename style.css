@@ -37,7 +37,8 @@ h1{
 }
 .message{
     text-align: center;
-    font-size: 16px;
+    font-size: 20px;
+    Color:red;
 }
 .box{
     width:300px;
