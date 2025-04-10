@@ -21,8 +21,8 @@ const hideBox = () => {
         box.classList.toggle("hidden");
 
         box.classList.contains("visible")
-            ? (hideBtn.textContent = "Display box")
-            : (hideBtn.textContent = "Hide Box");
+            ? (hideBtn.textContent = "Hide box")
+            : (hideBtn.textContent = "Show Box");
     });
 };
 hideBox();
