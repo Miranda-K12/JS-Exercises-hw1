@@ -1,0 +1,54 @@
+body{
+    padding: 64px;
+}
+h1{
+    font-size: 36px;
+    text-align: center;
+    color:blue;
+}
+.change-mode-button{
+    position: absolute;
+    top:40px;
+    right:40px;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 16px;
+    border: 1px solid black;
+    background-color: green;
+    color:white;
+}
+.click-button, .hide-box{
+    background-color: blue;
+    color:white;
+    display: block;
+    border: none;
+    cursor: pointer;
+    margin: 0 auto;
+    font-weight: 500;
+    font-size: 20px;
+    padding:10px 20px;
+    border-radius: 10px;
+    display: block;
+}
+.click-button:hover, 
+.change-mode-button:hover{
+    filter: brightness(0.8);
+}
+.message{
+    text-align: center;
+    font-size: 16px;
+}
+.box{
+    width:300px;
+    height:300px;
+    margin: 0 auto;
+    background-color: red;
+    margin-top: 48px;
+}
+.visible{
+    display: block;
+}
+.hidden{
+    display: none;
+}
