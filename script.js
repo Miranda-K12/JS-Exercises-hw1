@@ -1,127 +1,100 @@
-/*Task 1
-1.შექმენით ცვლადი user და შეინახეთ მნიშვნელობა ‘admin’ , შექმენით ცვლადი
-passCode და შეინახეთ მნიშვნელობა-12345.
-გამოიყენეთ prompt მეთოდი და მომხარებელსაც ჩააწერინეთ user და passCode.
-თუ მომხმარებლის მიერ ჩაწერილი user და passCode დაემთხვევა, წინასწარ შენახულ
-ინფორმაციას, კონსოლში დაბეჭდეთ"Login successful. Welcome!"
-თუ, რომელიმე არ დაემთხვევა დაბეჭდეთ შესაბამისი მესიჯი : Incorrect username ან
-Incorrect password
-სხვა შემთხვევაში, დაბეჭდეთ Login failed. Please try again.
-*/
-/*
-let user = 'admin';
-let passCode = 12345;
-//const EnteredUser = prompt('Enter your User');
-//const enteredPassword = Number(prompt('Enter Your Password'));
-if (EnteredUser === user && enteredPassword === passCode) {
-  console.log('Login successful. Welcome!');
-} else if (EnteredUser !== user) {
-  console.log('Incorrect username');
-} else if (enteredPassword !== passCode) {
-  console.log('Incorrect password');
-} else {
-  console.log('Login failed. Please try again.');
-}
-  */
-/*Task 2
-შეამოწმეთ სტრიქონი არის თუ არა პალინდრომი. ( პალინდრომი არის ისეთი ტიპის
-მონაცემი,
-რომელიც ერთნაირად იკითხება მარცხნიდან და მარჯვნიდან, მაგ LEVEL, ANNA, ALLO)
-შექმენით ცვლადი და მიანიჭეთ სტრიქონი, რომლის შემოწმებაც გსურთ.
-სტრიქონზე იმოქმედეთ ToLowerCase() მაგ: str. ToLowerCase()
-გამოიყენეთ for ციკლი და შეადარეთ ერთმანეთს სიმბოლოები ინდექსის ნომრის
-მიხედვით,
-სტრიქონის თავში და ბოლოში. თუ თანმიმდევრულად ყველა მათგანი დაემთხვევა
-გამოიტანეთ
-მესიჯი კონსოლში, რომ ინფუთი არის პალიდრომი. თუ არ დაემთხვევა, გამოიტანეთ,
-რომ ინფუთი
-არ არის პალინდრომი. 
+/*დაწერეთ- 1 პოლიმორფიზმის და 2 მემკვიდრეობითობის მაგალითი. 
+ასევე ატვირთეთ კოდი, რომელიც ლექციაზე დავწერეე ენკაფსულაციის საილუსტრაციოდ.
 */
 
-let string = 'Javascript';
-string = string.toLowerCase();
+/*ენკაფსულაცია */
 
-let isPalindrome = true;
-for (let i = 0; i < string.length / 2; i++) {
-  if (string[i] !== string[string.length - 1 - i]) {
-    isPalindrome = false;  
-    break;
+class Student {
+  fullName;
+  course;
+  grade;
+  constructor(fullName, grade, course) {
+    this.fullName = fullName;
+    this.grade = grade;
+    this.course = course;
+  }
+  printGrade() {
+    console.log(`${this.fullName} got ${this.grade} in the ${this.course}`)
   }
 }
 
-if (isPalindrome) {
-  console.log("სტრიქონი არის პალინდრომი.");
-} else {
-  console.log("სტრიქონი არ არის პალინდრომი.");
-}
-/*Task 3 
-გამოიყენეთ მასივის მეთოდი, რომელეც მოცემულ მასივის ანბანის ასოების
-თანმიმდევრობით დააწყობს:
+const student1 = new Student('Helen Smith', 85, 'Marketing');
+const student2=new Student ('John Brown', 75, 'English')
+student1.printGrade();
+student2.printGrade();
 
-const fruits = ["Banana", "Orange", "Apple", "Kiwi"];
-*/
-const fruits = ["Banana", "Orange", "Apple", "Kiwi"];
-fruits.sort();
-console.log(fruits);
-
-/*Task 4
-არის ტანვარჯიშის ორი გუნდი: დელფინები და კოალები
-თითოეული გუნდი სამჯერ ასპარეზობს და მათი შედეგი გამოითვლება საშუალო
-არითმეტიკულით.
-გუნდი მოიგებს მხოლოდ იმ შემთხვევაში, თუ ორჯერ მეტი საშუალო ქულა ექნება
-მეორე გუნდთან
-შედარებით, სხვა შემთხვევაში არცერთი გუნდი არ იქნება მოგებული!
-*/
-
-/*1.1 შექმენი arrow ფუნქცია სახელად calcAverage და გამოითვალე 3 ასპარეზობის
-საშუალო
-არითმეტიკული . ამ ფუნქციას უნდა ჰქონდეს სამი პარამეტრი და უნდა დააბრუნოს
-ერთი
-რიცხვი(საშუალო
-არითმეტიკული).*/
-let calcAverage = (score1, score2, score3) => {
-  return (score1 + score2 + score3) / 3;
-}
-
-/*1.2 შექმენი ორი ცვლადი scoreDolphins და scoreKoalas, ამ ცვლადებს მიანიჭე
-მნიშვნელობად
-ფუნქცია*/
-let scoreDolphins = [44, 23, 71];
-let scoreKoalas= [65, 54, 49];
-
-let avgDolphins = Math.round(calcAverage(scoreDolphins[0], scoreDolphins[1], scoreDolphins[2]));
-let avgKoalas = Math.round(calcAverage(scoreKoalas[0], scoreKoalas[1], scoreKoalas[2]));
-console.log(avgDolphins);
-console.log(avgKoalas);
-
-
-
-let scoreDolphins2 = [85, 54, 41];
-let scoreKoalas2 = [23, 34, 27];
-
-let avgDolphins2 = Math.round(calcAverage(scoreDolphins2[0], scoreDolphins2[1], scoreDolphins2[2]));
-let avgKoalas2 = Math.round(calcAverage(scoreKoalas2[0], scoreKoalas2[1], scoreKoalas2[2]));
-/*1.3 შექმენი ფუნქცია checkWinner, რომელიც იღებს ორ პარამეტრს avgDolphins და
-avgKoalas ამ
-ფუნქციაში უნდა გაწეროთ ლოგიკა, თუ ერთი გუნდის საშუალო ართმეთმეტიკული
-ორჯერ მეტია,
-მეორე
-
-გუნდის საშუალო არითმეტიკულზე , გუნდი მოგებულია, თუ არცერთი არ აკმაყოფილებს
-ამ პირობას,
-ვერცერთი გუნდი ვერ მოიგებს. თუ რომელიმე გუნდმა მოიგო, დაბეჭდეთ ეს ტექსტი:
-Koalas win (30 vs. 13), თუ ვერცერთმა მოიგო No team wins...
-*/
-
-function checkWinner(avgDolphins, avgKoalas) {
-  if (avgDolphins > 2 * avgKoalas) {
-    console.log("Dolphins win");
+/*პოლიმორფიზმი */
+class BankAccount {
+  user;
+  balance;
+  constructor(user, balance) {
+    this.user = user;
+    this.balance = balance;
   }
-     else if(avgKoalas > 2 * avgDolphins) {
-      console.log("Koalas win");
-    } else {
-      console.log("No team wins");
+  withdraw(amount) {
+  if (amount > this.balance) {
+    console.log(`${this.user} ანგარიშზე არ არის საკმარისი თანხა`);
+  } else {
+    this.balance -= amount;
+    console.log(`ოპერაცია წარმატებულია. ${this.user} ბალანსი არის: $${this.balance}`);
+  }
+  }
+   getBalance() {
+    return this.balance;
+  }
+}
+
+class Deposit extends BankAccount {
+  withdraw(amount) {
+    if (amount > this.balance) {
+  console.log("ანგარიშზე არ არის საკმარისი თანხა.");
+  }
+    else {
+      this.balance -= amount;
+      console.log(`ანაბარზე გადავიდა ${amount} ლარი. ბალანსი: $${this.balance}`);
     }
+  }
 }
-checkWinner(avgDolphins, avgKoalas);
-checkWinner(avgDolphins2, avgKoalas2);
+
+const user1 = new BankAccount("მირანდა", 1000);
+user1.withdraw(600);
+user1.withdraw(2000);
+const user2 = new Deposit("ელენე", 400);
+user2.withdraw(500);
+user2.withdraw(100);
+
+/*მემკვიდრეობითობა */
+class StudentInfo {
+  constructor(student, grades) {
+    this.student = student;
+    this.grades = grades; 
+  }
+
+  calculateAverage() {
+    const total = this.grades.reduce((acc, grade) => acc + grade, 0);
+    const averageGrade = (total / this.grades.length).toFixed(2);
+   if (averageGrade > 90) {
+      console.log(`${this.student} მიიღებს წითელ დიპლომს`);
+    } else if (averageGrade <= 90 && averageGrade > 50) {
+      console.log(`${this.student} მიიღებს დიპლომს`);
+    } else {
+      console.log(`${this.student} უნდა ჩააბაროს დამატებითი გამოცდა`);
+    }
+  }
+}
+
+
+class UndergraduateStudent extends StudentInfo {
+  constructor(student, grades) {
+    super(student, grades); 
+    this.numberOfCourses = grades.length;
+    console.log(`${this.student} არის ბაკალავრის სტუდენტი. სრული კურსების რაოდენობა: ${this.numberOfCourses}`);
+  }
+
+}
+
+const name1 = new StudentInfo("მირანდა", [85, 92, 78, 89, 88, 65]);
+name1.calculateAverage();
+
+const name2 = new UndergraduateStudent("ელენე", [80, 92, 98, 100, 96, 89]);
+name2.calculateAverage();
